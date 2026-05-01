@@ -484,12 +484,10 @@ tbody tr:hover td {
     padding: 0 2px;
 }
 
-.header-logo {
-    width: 45px;
-    height: 45px;
+.header-logo-original {
+    width: 55px;
+    height: 55px;
     object-fit: contain;
-    /* This helps ensure any remaining faint white pixels blend into the dark theme */
-    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
 }
 
 /* Responsive Design */
