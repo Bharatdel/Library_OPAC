@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Database</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Removed SheetJS, processing moved to backend -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-book-open brand-icon"></i>
+                <h2>Library Books</h2>
+            </div>
+            
+            <div class="filter-section">
+                <h3><i class="fa-solid fa-filter"></i> Search & Filter</h3>
+                
+                <div class="filter-group">
+                    <label for="searchTitle">Book Title</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-book"></i>
+                        <input type="text" id="searchTitle" placeholder="Search by title...">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="searchAuthor">Author</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-user-pen"></i>
+                        <input type="text" id="searchAuthor" placeholder="Search by author...">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterDepartment">Department</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-building"></i>
+                        <input type="text" id="filterDepartment" placeholder="Search by department...">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterPublisher">Publisher</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <input type="text" id="filterPublisher" placeholder="Search by publisher...">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterEdition">Edition</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <input type="text" id="filterEdition" placeholder="Search by edition...">
+                    </div>
+                </div>
+
+                <button id="resetFilters" class="btn-secondary">
+                    <i class="fa-solid fa-rotate-right"></i> Clear All Filters
+                </button>
+            </div>
+            
+            <div class="stats-card">
+                <div class="stat-value" id="recordCount">0</div>
+                <div class="stat-label">Books Found</div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Book Directory</h1>
+            </header>
+
+            <div class="table-container glass-panel">
+                <table id="dataTable" class="hidden">
+                    <thead>
+                        <tr>
+                            <th>Rec ID</th>
+                            <th>Accession No</th>
+                            <th>Department</th>
+                            <th>Title</th>
+                            <th>Edition</th>
+                            <th>Author</th>
+                            <th>Publisher</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Rows injected by JS -->
+                    </tbody>
+                </table>
+                <div id="noResults" class="hidden no-results">
+                    <i class="fa-solid fa-ghost"></i>
+                    <p>No books found matching your search. Try clearing some filters.</p>
+                </div>
+            </div>
+            
+            <!-- Pagination Controls -->
+            <div class="pagination hidden" id="pagination">
+                <button id="prevPage" class="btn-icon" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                <div id="pageNumbers" class="page-numbers"></div>
+                <button id="nextPage" class="btn-icon"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Loading the library database...</p>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
