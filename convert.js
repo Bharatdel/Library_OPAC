@@ -31,9 +31,9 @@ try {
         
         // Write out to a JavaScript file that the browser can load directly
         const jsOutput = `const libraryData = ${JSON.stringify(allRecords, null, 2)};\n`;
-        fs.writeFileSync(path.join(__dirname, 'public', 'data.js'), jsOutput, 'utf-8');
+        fs.writeFileSync(path.join(__dirname, 'data.js'), jsOutput, 'utf-8');
         
-        console.log(`✅ Successfully baked ${allRecords.length} records into public/data.js!`);
+        console.log(`✅ Successfully baked ${allRecords.length} records into data.js!`);
         console.log(`🚀 The Kiosk is updated and ready to run locally.`);
     } else {
         console.error("❌ The TSV file is empty.");
